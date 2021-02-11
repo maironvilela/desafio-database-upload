@@ -12,6 +12,7 @@ transactionsRouter.get('/', async (request, response) => {
 });
 
 transactionsRouter.post('/', async (request, response) => {
+  const { title, value, type, category } = request.body;
   // TODO
 });
 
