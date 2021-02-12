@@ -1,13 +1,15 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import Category from './Category';
 
-@Entity('transactons')
+@Entity('transactions')
 class Transaction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -24,15 +26,15 @@ class Transaction {
   @Column()
   category_id: string;
 
-  @Column()
+  @CreateDateColumn()
   created_at: Date;
 
-  @Column()
+  @UpdateDateColumn()
   updated_at: Date;
 
   @ManyToOne(() => Category)
   @JoinColumn({ name: 'category_id' })
-  provider: Category;
+  category: Category;
 }
 
 export default Transaction;
